@@ -119,7 +119,7 @@ userRouter.get('/:id',isAuth,expressAsyncHandler(async(req,res)=>{
       }
 }));
 
-userRouter.put('/profile',expressAsyncHandler(async(req,res)=>{
+userRouter.put('/profile/:id',expressAsyncHandler(async(req,res)=>{
   const user=await User.findById(req.params.id);
   if(user){
     user.name= req.body.name || user.name;
@@ -127,7 +127,7 @@ userRouter.put('/profile',expressAsyncHandler(async(req,res)=>{
     if(req.body.password){
       user.password=bcrypt.hashSync(req.body.password ,8);
     }
-    const updatedUser =await User.save();
+    const updatedUser =await user.save();
     res.send({
       _id:updatedUser._id,
       name:updatedUser.name,

@@ -13,14 +13,14 @@ export default function OrderList(props){
     useEffect(()=>{
         dispatch(getAllOrderList());
     },[dispatch]);
-    let isUpdated=false;
+
     const updateOrderDeliveryStatus =(id) =>{
-        if(!isUpdated){
         dispatch(updateOrderStatus(id));
+        getAllList();
+    }
+  const getAllList =() =>{
         dispatch(getAllOrderList());
-        isUpdated=true;
-        }
-}
+  }
     return(
         <>
         {
@@ -67,7 +67,7 @@ export default function OrderList(props){
                          </td>
 
                          <td>
-                             <button type="submit" className="small" disabled={order.isDelivered} onClick={() =>updateOrderDeliveryStatus(order._id)}>Delivered</button>
+                             <button type="submit" className="small" disabled={order.isDelivered} onClick={()=>updateOrderDeliveryStatus(order._id)}>Delivered</button>
                          </td>
                          </tr>
                                )
