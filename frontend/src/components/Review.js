@@ -4,7 +4,7 @@ import Rating from "./Rating";
 export default function Review(props){
     const { allReview } =props;
     return(
-           <div className="box box1">
+           <div className="ratingBox">
            <div className="row2">
                <div className="row2">
                  <img src="/images/user.png" alt="" className="small3"></img>

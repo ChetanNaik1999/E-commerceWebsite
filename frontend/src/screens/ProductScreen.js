@@ -193,7 +193,7 @@ export default function ProductScreen(props)
               </div>
 
               <div>                
-              <h1>TOTAL REVIEW:<span className="no">{reviewList.length}</span></h1>
+              <h1 style={{ textAlign:"center"}}>TOTAL REVIEW:<span className="no">{reviewList.length}</span></h1>
               </div>
               <div className="row3">
                   {reviewList.map((allReview)=>{
